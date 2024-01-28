@@ -1,7 +1,4 @@
 import React, { useRef, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, updateProfile } from 'firebase/auth';
-import { auth, database } from './firebase'; // Assuming you have exported the 'database' object from your 'firebase.js' file
-import { set, ref } from 'firebase/database';
 import './Admin.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -22,7 +19,7 @@ export default function Admin() {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     const confirmPassword = confirmPasswordRef.current.value;
-    const lawyerId = lawyerIdRef.current.value;
+    const username = lawyerIdRef.current.value;
 
     if (password !== confirmPassword) {
       setError('Passwords do not match');
@@ -30,59 +27,42 @@ export default function Admin() {
       return;
     }
 
-    const authInstance = getAuth();
+    const requestObj = {}
+    requestObj.first_name = name;
+    requestObj.last_name = secondName;
+    requestObj.email = email;
+    requestObj.password = password;
+    requestObj.username = username;
 
-    try {
-      const userCredential = await createUserWithEmailAndPassword(authInstance, email, password);
-
-      // Access the user object from the userCredential
-      const user = userCredential.user;
-
-      // Update the user's display name
-      await updateProfile(user, {
-        displayName: `${name} ${secondName}`,
-      });
-
-      // Save additional user data to the database
-      await saveUserDataToDatabase(user.uid, { name, secondName, lawyerId });
-
-      setSuccess(true);
-      setError(null);
-
-      // Clear input fields
-      nameRef.current.value = '';
-      secondNameRef.current.value = '';
-      emailRef.current.value = '';
-      passwordRef.current.value = '';
-      confirmPasswordRef.current.value = '';
-      lawyerIdRef.current.value = '';
-
-      // Redirect to home page after successful registration
-      setTimeout(() => {
-        navigate('/');
-      }, 2000);
-    } catch (error) {
-      switch (error.code) {
-        case 'auth/email-already-in-use':
-          setError('Email is already in use. Please use a different email.');
-          break;
-        case 'auth/weak-password':
-          setError('Password should be at least 6 characters long.');
-          break;
-        default:
-          setError('Error signing up. Please try again.');
-      }
+    if (username[0].toLowerCase() === 'l') {
+      requestObj.user_type = 'lawyer'
+    } else if (username[0].toLowerCase() === 'j') {
+      requestObj.user_type = 'judge'
+    } else {
+      setError('Invalid Username');
       setSuccess(false);
+      return;
     }
-  };
 
-  const saveUserDataToDatabase = async (userId, userData) => {
-    // Replace this with your database logic
-    try {
-      await set(ref(database, `users/${userId}`), userData);
-      console.log('User data saved to the database:', userData);
-    } catch (error) {
-      console.error('Error saving user data to the database:', error);
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(requestObj),
+    };
+
+    const response = await fetch(
+      "http://localhost:5000/users/create-user",
+      requestOptions
+    );
+
+    const result = await response.json();
+
+    console.log(result);
+    if (result.status) {
+      alert(result.message);
+      navigate("/");
+    } else {
+      alert(result.message);
     }
   };
 

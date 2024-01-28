@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
@@ -24,8 +23,8 @@ function App() {
         <Route path="/Admin" element={<Admin />} />
         <Route path='/judge' element={<Judge />} />
         <Route path='/lawyerLogin' element={<LawyerUi />}  />
-        <Route path="/faq's" element={<Faq/>} />
-        <Route path="/faq's/govern" element={<Faq2 />} />
+        <Route path="/faqs" element={<Faq/>} />
+        <Route path="/faqs/govern" element={<Faq2 />} />
         <Route path="/ReleaseNotes" element={<ReleaseNotes/>} />
         <Route path="/AboutUs" element={<AboutUs/>} />
       </Routes>

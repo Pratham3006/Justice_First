@@ -20,7 +20,7 @@ export default function Navigation() {
         <Link to="/lawyerLogin">LoginUi</Link>
       </li>
       <li>
-        <Link to="/faq's">LoginUi</Link>
+        <Link to="/faqs">LoginUi</Link>
       </li>
       <li>
         <Link to="/ReleaseNotes">LoginUi</Link>

@@ -1,8 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "./firebase";
 
 export default function Lawyer() {
   const [email, setEmail] = useState("");
@@ -10,19 +8,38 @@ export default function Lawyer() {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    // Check if the email ends with "@law.com" for lawyer access
-    if (email.endsWith("@law.com")) {
-      try {
-        await signInWithEmailAndPassword(auth, email, password);
-        alert("Login successful!");
-        navigate("/lawyerLogin");
-      } catch (error) {
-        alert("Login failed. Please check your credentials."); // Display a pop-up message for failed login
-      }
+    const requestObj = {}
+    requestObj.password = password;
+    requestObj.user_type = 'lawyer';
+
+    isEmail(email) ? requestObj.email = email : requestObj.username = email;
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(requestObj),
+    };
+
+    const response = await fetch(
+      "http://localhost:5000/users/login-user",
+      requestOptions
+    );
+
+    const result = await response.json();
+
+    if (result.status) {
+      alert(result.message);
+      navigate("/lawyerLogin");
     } else {
-      alert("Unauthorized access found. Please use a valid lawyer email."); // Display an error message for unauthorized access
+      alert(result.message);
     }
   };
+
+  const isEmail = (str) => {
+    // Email Regex String
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(str);
+  }
 
   return (
     <div>
@@ -56,7 +73,7 @@ export default function Lawyer() {
                 </a>
               </li>
               <li>
-                <a href="/faq's/govern" className="link">
+                <a href="/faqs/govern" className="link">
                   FAQ's
                 </a>
               </li>
