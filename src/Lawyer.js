@@ -28,6 +28,7 @@ export default function Lawyer() {
     const result = await response.json();
 
     if (result.status) {
+      localStorage.setItem('user', JSON.stringify(result.data));
       alert(result.message);
       navigate("/lawyerLogin");
     } else {
