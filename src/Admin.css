@@ -1,0 +1,105 @@
+
+    
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+
+}
+.Admin{
+    background: url("./components/assets/bg_3.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+    
+}
+.wrapper-3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.parent-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Heading{
+    border: 2px solid black;
+    text-align: center;
+    justify-content: center;
+    position: sticky;
+
+}
+
+.login1{
+    border: 3px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 100px;
+    background-color:#e68fee;
+    position: relative;
+}
+.User{
+    padding: 20px;
+   
+
+}
+.User input{
+    margin: 20px;
+}
+.text_login b{
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+.input_field{
+    padding: 12px;
+    border-radius: 10px;
+}
+.Submit{
+    text-align: center;
+}
+.Submit button:hover{
+    border-radius: 20px;
+    background-color: rgb(196, 194, 42);
+}
+.admin-button{
+    padding: 5px;
+}
+@media only screen and (max-width: 600px) {
+    .login1 {
+      padding: 14px;
+       margin: 100px;
+      }
+      .input_field{
+        padding: 10px;
+        border-radius: 8px;
+    }
+    .User{
+        padding: 15px;
+    }
+  }
+  @media only screen and (max-width: 400px) {
+    .login1 {
+        padding: 8px;
+       margin: 90px;
+      }
+      .User{
+        padding: 10px;
+    }
+  }
+
+    
+
+
+
+
+

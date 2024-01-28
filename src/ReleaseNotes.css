@@ -1,0 +1,63 @@
+
+.release-notes-container {
+    height: 100vh;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.release-notes-container:hover {
+    transform: scale(1.02);
+    max-height: 100vh;
+    overflow: auto; /* Enable vertical scrolling on hover */
+}
+
+.release-notes-container:hover::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+}
+
+.release-notes-title {
+    color: #007bff;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.release-month {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.release-notes-list {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 0;
+}
+
+.release-note-item {
+    font-size: 16px;
+    margin-bottom: 12px;
+    padding-left: 40px; /* Increased padding to accommodate the checkmark */
+    color: #008000; /* Green color for list items */
+    transition: color 0.3s ease-in-out; /* Transition for text color change */
+}
+
+.release-note-item:before {
+    content: '\2713'; /* Checkmark character */
+    color: #4CAF50; /* Green color for checkmark */
+    font-size: 18px;
+    margin-right: 10px; /* Add some space between checkmark and text */
+    transition: color 0.3s ease-in-out; /* Transition for checkmark color change */
+}
+
+.release-note-item:hover {
+    color: #ff0000; /* Red text color on hover */
+}
+
+.release-note-item:hover:before {
+    color: #ff0000; /* Red checkmark color on hover */
+}

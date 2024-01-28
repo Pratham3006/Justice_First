@@ -1,24 +1,36 @@
 import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+import Home from './Home';
+import Lawyer from './Lawyer';
+import Judge from './Judge';
+import Admin from './Admin';
+import LawyerUi from './LawyerUi';
+import ReleaseNotes from './ReleaseNotes';
+import './ReleaseNotes.css'
+import AboutUs from './AboutUs';
+import Faq from './Faq';
+import Faq2 from './Faq2';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/lawyer" element={<Lawyer />}  />
+        <Route path="/Admin" element={<Admin />} />
+        <Route path='/judge' element={<Judge />} />
+        <Route path='/lawyerLogin' element={<LawyerUi />}  />
+        <Route path="/faq's" element={<Faq/>} />
+        <Route path="/faq's/govern" element={<Faq2 />} />
+        <Route path="/ReleaseNotes" element={<ReleaseNotes/>} />
+        <Route path="/AboutUs" element={<AboutUs/>} />
+      </Routes>
+    </BrowserRouter>
+  </React.StrictMode>
   );
 }
 
