@@ -1,0 +1,49 @@
+.parent-div-case{
+    border: 2px solid black;
+    display: flex;
+    background-color: rgb(243, 204, 156);
+    width: 600px;
+    margin: 15px;
+    border-radius: 5px;
+}
+.child-case-1{
+    background-color: rgb(240, 107, 107);
+    border: 2px solid black;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 30%;
+    font-weight: 900;
+}
+.child-case-2{
+    display: flex;
+    text-align: center;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    width: 70%;
+    font-weight: 900;
+}
+@media screen and (max-width:1200px) {
+.parent-div-case{
+    width: 500px;
+    margin: 12px;
+}
+    
+}
+@media screen and (max-width:600px) {
+    .parent-div-case{
+        width: 400px;
+        margin: 9px;
+    }
+        
+    }
+    @media screen and (max-width:400px) {
+        .parent-div-case{
+            width: 300px;
+            margin: 9px;
+        }
+            
+        }

@@ -12,6 +12,8 @@ import AboutUs from './AboutUs';
 import Faq from './Faq';
 import Faq2 from './Faq2';
 import Fgp from './Fgp';
+import JudgeUi from './JudgeUi';
+
 
 
 function App() {
@@ -24,7 +26,7 @@ function App() {
         <Route path="/Admin" element={<Admin />} />
         <Route path='/judge' element={<Judge />} />
         <Route path='/lawyerLogin' element={<LawyerUi />}  />
-        <Route path='/judgeLogin' element={<LawyerUi />}  />
+        <Route path='/judgeLogin' element={<JudgeUi />}  />
         <Route path="/faqs" element={<Faq/>} />
         <Route path="/faqs/govern" element={<Faq2 />} />
         <Route path="/ReleaseNotes" element={<ReleaseNotes/>} />

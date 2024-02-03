@@ -1,0 +1,48 @@
+.header {
+  background-color: rgb(22, 192, 155);
+  height: auto;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.filters {
+  margin-top: 10px;
+}
+
+.search-button {
+  border-radius: 14px;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 600;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.Parent-case {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+/* Media queries for responsiveness */
+
+@media only screen and (max-width: 768px) {
+  .filters {
+    margin-top: 20px;
+  }
+
+  .search-button {
+    padding: 8px;
+  }
+
+  .Parent-case {
+    margin-top: 30px;
+  }
+  .header h1{
+    font-size: 22px;
+  }
+}
