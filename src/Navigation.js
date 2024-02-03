@@ -25,6 +25,9 @@ export default function Navigation() {
       <li>
         <Link to="/ReleaseNotes">LoginUi</Link>
       </li>
+      <li>
+        <Link to="/Forgot">LoginUi</Link>
+      </li>
     </ul>
     </div>
   )

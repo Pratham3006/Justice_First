@@ -11,6 +11,7 @@ import './ReleaseNotes.css'
 import AboutUs from './AboutUs';
 import Faq from './Faq';
 import Faq2 from './Faq2';
+import Fgp from './Fgp';
 
 
 function App() {
@@ -23,10 +24,12 @@ function App() {
         <Route path="/Admin" element={<Admin />} />
         <Route path='/judge' element={<Judge />} />
         <Route path='/lawyerLogin' element={<LawyerUi />}  />
+        <Route path='/judgeLogin' element={<LawyerUi />}  />
         <Route path="/faqs" element={<Faq/>} />
         <Route path="/faqs/govern" element={<Faq2 />} />
         <Route path="/ReleaseNotes" element={<ReleaseNotes/>} />
         <Route path="/AboutUs" element={<AboutUs/>} />
+        <Route path="/Forgot" element={<Fgp/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

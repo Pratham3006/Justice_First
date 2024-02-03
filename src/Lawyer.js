@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Lawyer() {
   const [email, setEmail] = useState("");
@@ -80,7 +80,7 @@ export default function Lawyer() {
               </li>
               <li>
                 <div className="nav-button">
-                  <button className="button"><p>Forgot Your Password?</p></button>
+                  <Link to="/Forgot"><button className="button"><p>Forgot Your Password?</p></button></Link>
                 </div>
               </li>
             </ul>

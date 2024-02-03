@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,Link} from "react-router-dom";
 
 
 export default function Judge() {
@@ -79,9 +79,9 @@ export default function Judge() {
               </a>
             </li>
             <li>
-              <div className="nav-button">
-                <button className="button"><p>Forgot Your Password?</p></button>
-              </div>
+            <div className="nav-button">
+                  <Link to="/Forgot"><button className="button"><p>Forgot Your Password?</p></button></Link>
+                </div>
             </li>
           </ul>
         </div>
