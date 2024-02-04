@@ -13,9 +13,19 @@ export default function LawyerUi() {
     color: "black",
     backgroundColor: "white",
   });
-  const navigate = useNavigate();
+  const [selectedDate, setSelectedDate] = useState("");
+  const [text, setText] = useState("");
+  const [judgeUsername, setJudgeUsername] = useState("");
+  const [caseId, setCaseId] = useState("");
 
+  let caseSubclass;
+
+  const navigate = useNavigate();
   const storedUser = JSON.parse(localStorage.getItem("lawyer"));
+
+  const handleDateChange = (event) => {
+    setSelectedDate(event.target.value);
+  };
 
   const handleDarkmode = () => {
     setImage((currentImage) => (currentImage === bulb ? setbulb : bulb));
@@ -41,22 +51,73 @@ export default function LawyerUi() {
       };
     });
   };
-  const [text, setText] = useState(" ");
   const handleChange = (e) => {
     setText(e.target.value);
   };
-  const handleText = () => {
-    setText(" ");
+
+  function clearAllInputFields() {
+    // Get all input elements in the form
+    const inputFields = document.querySelectorAll("input");
+
+    // Loop through each input field and set its value to an empty string
+    inputFields.forEach((input) => {
+      input.value = "";
+    });
+    setText("");
+    setSelectedDate("");
+  }
+
+  const handleSubmit = () => {
+    const predictObj = {
+      text_description: text,
+    };
+
+    const reqOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(predictObj),
+    };
+
+    fetch("http://localhost:5000/predict", reqOptions)
+      .then((response) => response.json())
+      .then((res) => {
+        caseSubclass = res.data;
+
+        const requestObj = {
+          case_id: caseId,
+          case_text: text,
+          case_subclass: caseSubclass,
+          created_date: selectedDate,
+          lawyer_username: storedUser?.username,
+          judge_username: judgeUsername,
+        };
+
+        const requestOptions = {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(requestObj),
+        };
+
+        return fetch("http://localhost:5000/cases/add-case", requestOptions);
+      })
+      .then((response) => response.json())
+      .then((res) => {
+        if (res.status) {
+          clearAllInputFields();
+        }
+        alert(res.message);
+      })
+      .catch((err) => console.log(err.message));
   };
 
   const handleLogout = async () => {
-    const requestObj = {}
+    const requestObj = {};
     requestObj.user_id = storedUser.id;
 
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(requestObj)
+      body: JSON.stringify(requestObj),
     };
 
     const response = await fetch(
@@ -66,7 +127,7 @@ export default function LawyerUi() {
 
     const result = await response.json();
 
-    if(result.status) {
+    if (result.status) {
       localStorage.removeItem("lawyer");
       alert(result.message);
       navigate("/");
@@ -101,7 +162,7 @@ export default function LawyerUi() {
           className="header-button12"
           onClick={storedUser?.id ? handleLogout : redirectToLogin}
         >
-          {storedUser?.id ? 'Logout' : 'Login'}
+          {storedUser?.id ? "Logout" : "Login"}
         </button>
       </nav>
 
@@ -124,21 +185,38 @@ export default function LawyerUi() {
             <p>Enter the case summary for your text</p>
             <div className="Lawyer-input">
               <div className="case-parent">
-              <input  className="case-box" placeholder="Enter the Judge's username"></input>
-              <input  className="case-box" placeholder="Enter the case ID"></input>
+                <input
+                  className="case-box"
+                  placeholder="Enter the Judge's username"
+                  onChange={(e) => setJudgeUsername(e.target.value)}
+                ></input>
+                <input
+                  className="case-box"
+                  placeholder="Enter the case ID"
+                  onChange={(e) => setCaseId(e.target.value)}
+                ></input>
+                <label htmlFor="datePicker">Case Filed On:</label>
+                <input
+                  className="case-box"
+                  type="date"
+                  id="datePicker"
+                  name="datePicker"
+                  value={selectedDate}
+                  onChange={handleDateChange}
+                />
               </div>
 
-            <textarea
-              type="text"
-              className="input-box-lawyer"
-              value={text}
-              onChange={handleChange}
-            />
+              <textarea
+                type="text"
+                className="input-box-lawyer"
+                value={text}
+                onChange={handleChange}
+              />
             </div>
             <div className="button-div">
               <button
                 className="input-button-data"
-                onClick={handleText}
+                onClick={handleSubmit}
                 style={{
                   ...submit,
                   color: style.color,

@@ -1,6 +1,6 @@
 // JudgeUi.js
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Select from "react-select/async";
 import bulb from "./components/assets/bulb-2.png";
 import setbulb from "./components/assets/bulb1.png";
@@ -13,6 +13,8 @@ export default function JudgeUi() {
   const storedUser = JSON.parse(localStorage.getItem("judge"));
   const name = storedUser?.first_name;
   const lastName = storedUser?.last_name;
+  const username = storedUser?.username;
+  const usertype = "judge";
 
   const [submit, setSubmit] = useState({
     backgroundColor: "purple",
@@ -25,6 +27,33 @@ export default function JudgeUi() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [selectedCaseType, setSelectedCaseType] = useState(null);
   const [caseId, setCaseId] = useState("");
+  const [cases, setCases] = useState(null);
+
+  useEffect(() => {
+    // Function to make the API call
+    const fetchData = async () => {
+      try {
+        const requestOptions = {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        };
+
+        const response = await fetch(
+          `http://localhost:5000/cases/get-all-cases?user_type=${usertype}&&username=${username}`,
+          requestOptions
+        );
+        const result = await response.json();
+
+        // Set the data in state
+        setCases(result.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    // Call the API when the component mounts
+    fetchData();
+  }, []);
 
   const navigate = useNavigate();
 
@@ -144,38 +173,9 @@ export default function JudgeUi() {
 
           <button className="search-button">Search</button>
           <div className="Parent-case">
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case
-              case={"D1456"}
-              description={
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum "
-              }
-            />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
-            <Case case={"D1456"} description={"Robery occure at dombivil"} />
+            {cases?.map((singleCase, index) => (
+              <Case key={singleCase.case_id} case={singleCase?.case_id} description={singleCase?.case_text} />
+            ))}
           </div>
         </div>
       </div>
