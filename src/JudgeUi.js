@@ -28,6 +28,7 @@ export default function JudgeUi() {
   const [selectedCaseType, setSelectedCaseType] = useState(null);
   const [caseId, setCaseId] = useState("");
   const [cases, setCases] = useState(null);
+  const [filteredCases, setFilteredCases] = useState(null);
 
   useEffect(() => {
     // Function to make the API call
@@ -46,6 +47,7 @@ export default function JudgeUi() {
 
         // Set the data in state
         setCases(result.data);
+        setFilteredCases(result.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -121,6 +123,29 @@ export default function JudgeUi() {
       });
   };
 
+  const resetCaseType = () => {
+    setSelectedCaseType(null);
+  };
+
+  const handleSearch = () => {
+    // Filter cases based on selected subclass and case ID
+    let filteredList = cases;
+
+    if (selectedCaseType) {
+      filteredList = filteredList.filter(
+        (singleCase) => singleCase.case_subclass === selectedCaseType.value
+      );
+    }
+
+    if (caseId) {
+      filteredList = filteredList.filter((singleCase) =>
+        singleCase.case_id.includes(caseId)
+      );
+    }
+    setFilteredCases(filteredList);
+    resetCaseType();
+  };
+
   return (
     <div className="Parent-Ui">
       <nav className="Lawyer-Login" style={style}>
@@ -159,9 +184,6 @@ export default function JudgeUi() {
             isSearchable
             loadOptions={loadOptions}
           />
-          {selectedCaseType && (
-            <p>Selected Case Type: {selectedCaseType.label}</p>
-          )}
 
           <label htmlFor="caseIdInput">Enter Case ID:</label>
           <input
@@ -171,10 +193,16 @@ export default function JudgeUi() {
             onChange={(e) => setCaseId(e.target.value)}
           />
 
-          <button className="search-button">Search</button>
+          <button className="search-button" onClick={handleSearch}>
+            Search
+          </button>
           <div className="Parent-case">
-            {cases?.map((singleCase, index) => (
-              <Case key={singleCase.case_id} case={singleCase?.case_id} description={singleCase?.case_text} />
+            {filteredCases?.map((singleCase, index) => (
+              <Case
+                key={singleCase.case_id}
+                case={singleCase?.case_id}
+                description={singleCase?.case_text}
+              />
             ))}
           </div>
         </div>
