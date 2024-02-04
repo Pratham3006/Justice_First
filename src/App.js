@@ -13,6 +13,7 @@ import Faq from './Faq';
 import Faq2 from './Faq2';
 import Fgp from './Fgp';
 import JudgeUi from './JudgeUi';
+import Stats from './Stats';
 
 
 
@@ -32,6 +33,7 @@ function App() {
         <Route path="/ReleaseNotes" element={<ReleaseNotes/>} />
         <Route path="/AboutUs" element={<AboutUs/>} />
         <Route path="/Forgot" element={<Fgp/>} />
+        <Route path="/Stats" element={<Stats/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

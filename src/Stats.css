@@ -1,0 +1,93 @@
+.stats-law{
+    background-image: url(./components/assets/7504550_3685115.svg);
+    background-repeat: none;
+    background-repeat: no-repeat;
+    background-position:left;
+    margin-top: 60px;
+}
+.stats-font{
+    font-size:2em
+}
+.line{
+    position: relative;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+}
+.year-sleector{
+    font-size: 16px;
+}
+@media screen and (max-width:1200px) {
+    .line{
+        position: relative;
+        left: 45%;
+        width: 500px;
+        height: 500px;
+    }  
+    
+}
+@media screen and (max-width:1100px) {
+    .line{
+        position: relative;
+        left: 50%;
+        width: 450px;
+        height: 450px;
+    }  
+    
+}
+@media screen and (max-width:900px) {
+    .line{
+        position: relative;
+        left: 44%;
+        width: 420px;
+        height: 420px;
+    }  
+    
+}
+@media screen and (max-width:800px) {
+    .stats-law{
+        margin-top: 30px;
+    }
+    .line{
+        position: relative;
+        left: 40%;
+    }  
+    .stats-font{
+        font-size: 1.3em;
+    }
+    
+}
+@media screen and (max-width:700px) {
+    .stats-law{
+        margin-top: 20px;
+        margin-left: 20px;
+        background-size: cover;
+        background-position: bottom;
+    }
+    .line{
+        position: relative;
+        left: 40%;
+        width: 300px;
+        height: 300px;
+    }  
+    .stats-font{
+        font-size: 1.3em;
+    }
+    
+}
+@media screen and (max-width:700px) {
+    .stats-law{
+        background-image: none;
+    }
+    .line{
+        position: relative;
+        margin-top: 50%;
+        left: 10%;
+        width: 500px;
+        height: 500px;
+    }  
+    .stats-font{
+        font-size: 1.3em;
+    }
+    
+}

@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsLoading(false);
-    }, 6000); 
+    }, 1000); 
     return () => clearTimeout(timeout);
   }, []); 
   return (
@@ -24,7 +24,7 @@ export default function Home() {
     ) : (
       <>
         {/* Render content when isLoading is false */}
-        <Navbar image={logo} item1={"Home"} item2={"About us"} item3={"Faq's"} item4={"Release Notes"} />
+        <Navbar image={logo} item1={"Home"} item2={"About us"} item3={"Faq's"} item4={"Statistics"} item5={"Release notes"} />
         <Caraousel />
         <Loginasset />
         <Footer />
