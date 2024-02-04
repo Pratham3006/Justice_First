@@ -15,7 +15,7 @@ export default function LawyerUi() {
   });
   const navigate = useNavigate();
 
-  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const storedUser = JSON.parse(localStorage.getItem("lawyer"));
 
   const handleDarkmode = () => {
     setImage((currentImage) => (currentImage === bulb ? setbulb : bulb));
@@ -67,7 +67,7 @@ export default function LawyerUi() {
     const result = await response.json();
 
     if(result.status) {
-      localStorage.removeItem("user");
+      localStorage.removeItem("lawyer");
       alert(result.message);
       navigate("/");
     }

@@ -1,6 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { isEmail } from "./utils";
 
 export default function Lawyer() {
   const [email, setEmail] = useState("");
@@ -28,19 +28,13 @@ export default function Lawyer() {
     const result = await response.json();
 
     if (result.status) {
-      localStorage.setItem('user', JSON.stringify(result.data));
+      localStorage.setItem('lawyer', JSON.stringify(result.data));
       alert(result.message);
       navigate("/lawyerLogin");
     } else {
       alert(result.message);
     }
   };
-
-  const isEmail = (str) => {
-    // Email Regex String
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    return emailRegex.test(str);
-  }
 
   return (
     <div>
@@ -80,7 +74,7 @@ export default function Lawyer() {
               </li>
               <li>
                 <div className="nav-button">
-                  <Link to="/Forgot"><button className="button"><p>Forgot Your Password?</p></button></Link>
+                  <Link to="/Forgot/1"><button className="button"><p>Forgot Your Password?</p></button></Link>
                 </div>
               </li>
             </ul>

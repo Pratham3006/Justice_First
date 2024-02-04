@@ -32,7 +32,7 @@ function App() {
         <Route path="/faqs/govern" element={<Faq2 />} />
         <Route path="/ReleaseNotes" element={<ReleaseNotes/>} />
         <Route path="/AboutUs" element={<AboutUs/>} />
-        <Route path="/Forgot" element={<Fgp/>} />
+        <Route path="/Forgot/:id" element={<Fgp/>} />
         <Route path="/Stats" element={<Stats/>} />
       </Routes>
     </BrowserRouter>
