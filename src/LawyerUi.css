@@ -74,7 +74,7 @@ font-size: 16px;
     position: relative;
     right: 0%
   }
-  .input-box{
+  .input-box-lawyer{
     
     width: 60%;
     height: 100px;
@@ -90,6 +90,25 @@ font-size: 16px;
   .transmission{
     margin-top: 40px;
   }
+  .case-box{
+    background-color: bisque;
+    border: 4px solid black;
+    margin: 15px;
+    width: 250px; 
+    height: 50px;
+    border-radius: 10px;
+  }
+  .case-parent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .Lawyer-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
   
   @keyframes marquee {
     from { transform: translateX(105%); }
@@ -103,13 +122,17 @@ font-size: 16px;
        
        
     }
+    .case-box{
+      width: 150px;
+      height: 30px;
+    }
     .header-button12{
         border-radius: 10px;
         font-family: 'Kanit', sans-serif;
         font-weight: 600;
         padding: 10px;
     }
-    .input-box{
+    .input-box-lawyer{
     
         width: 60%;
         height: 80px;
@@ -137,7 +160,7 @@ font-size: 16px;
         font-weight: 600;
         padding: 10px;
     }
-    .input-box{
+    .input-box-lawyer{
     
         width: 50%;
         height: 60px;
@@ -147,6 +170,10 @@ font-size: 16px;
         font-size: 8px;
         
         
+        }
+        .case-box{
+          width: 100px;
+          height: 20px;
         }
     
   }

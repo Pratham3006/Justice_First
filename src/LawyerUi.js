@@ -122,12 +122,19 @@ export default function LawyerUi() {
         {storedUser?.id ? (
           <div className="transmission">
             <p>Enter the case summary for your text</p>
+            <div className="Lawyer-input">
+              <div className="case-parent">
+              <input  className="case-box" placeholder="Enter the Judge's username"></input>
+              <input  className="case-box" placeholder="Enter the case ID"></input>
+              </div>
+
             <textarea
               type="text"
-              className="input-box"
+              className="input-box-lawyer"
               value={text}
               onChange={handleChange}
             />
+            </div>
             <div className="button-div">
               <button
                 className="input-button-data"
