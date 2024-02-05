@@ -3,7 +3,7 @@ import "./LawyerUi.css";
 import bulb from "./components/assets/bulb-2.png";
 import setbulb from "./components/assets/bulb1.png";
 import clock from './components/assets/clock-1.png';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LawyerUi() {
   const [submit, setSubmit] = useState({
@@ -178,7 +178,7 @@ export default function LawyerUi() {
           </div>
         </div>
         <div className="content-para-1">
-          <div className="content-para-click"><img src={clock}></img></div>
+          <div className="content-para-click"><Link to="/History"><img src={clock}></img></Link></div>
         </div>
         <div className="content-para">
           Welcome to Justice First

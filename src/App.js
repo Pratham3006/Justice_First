@@ -14,6 +14,7 @@ import Faq2 from './Faq2';
 import Fgp from './Fgp';
 import JudgeUi from './JudgeUi';
 import Stats from './Stats';
+import History from './History';
 
 
 
@@ -34,6 +35,7 @@ function App() {
         <Route path="/AboutUs" element={<AboutUs/>} />
         <Route path="/Forgot/:id" element={<Fgp/>} />
         <Route path="/Stats" element={<Stats/>} />
+        <Route path="/History" element={<History/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
