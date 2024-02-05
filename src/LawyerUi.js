@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./LawyerUi.css";
 import bulb from "./components/assets/bulb-2.png";
 import setbulb from "./components/assets/bulb1.png";
+import clock from './components/assets/clock-1.png';
 import { useNavigate } from "react-router-dom";
 
 export default function LawyerUi() {
@@ -176,11 +177,14 @@ export default function LawyerUi() {
             </div>
           </div>
         </div>
-        <p className="content-para">
+        <div className="content-para-1">
+          <div className="content-para-click"><img src={clock}></img></div>
+        </div>
+        <div className="content-para">
           Welcome to Justice First
           {storedUser && ", " + storedUser?.first_name}
-        </p>
-        {storedUser?.id ? (
+        </div>
+        {!storedUser?.id ? (
           <div className="transmission">
             <p>Enter the case summary for your text</p>
             <div className="Lawyer-input">

@@ -50,6 +50,8 @@ font-size: 16px;
 }
 
 .content-para{
+    display: flex;
+    justify-content: center;
     font-family: 'Kanit', sans-serif;
     font-size: 3em;
     font-weight: 900;
@@ -108,6 +110,19 @@ font-size: 16px;
     justify-content: center;
     align-items: center;
 
+  }
+  .content-para-1{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .content-para-click{
+    display: flex;
+    border: 2px solid black;
+    background-color: bisque;
+    padding: 5px;
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
   }
   
   @keyframes marquee {
