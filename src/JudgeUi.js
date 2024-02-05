@@ -146,6 +146,11 @@ export default function JudgeUi() {
     resetCaseType();
   };
 
+  const handleReset = () => {
+    setFilteredCases(cases);
+    setCaseId("");
+  };
+
   return (
     <div className="Parent-Ui">
       <nav className="Lawyer-Login" style={style}>
@@ -195,6 +200,9 @@ export default function JudgeUi() {
 
           <button className="search-button" onClick={handleSearch}>
             Search
+          </button>
+          <button className="search-button" onClick={handleReset}>
+            Reset
           </button>
           <div className="Parent-case">
             {filteredCases?.map((singleCase, index) => (
