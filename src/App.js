@@ -15,6 +15,7 @@ import Fgp from './Fgp';
 import JudgeUi from './JudgeUi';
 import Stats from './Stats';
 import History from './History';
+import Pil from './Pil';
 
 
 
@@ -36,6 +37,7 @@ function App() {
         <Route path="/Forgot/:id" element={<Fgp/>} />
         <Route path="/Stats" element={<Stats/>} />
         <Route path="/History" element={<History/>} />
+        <Route path="/PIL" element={<Pil/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
