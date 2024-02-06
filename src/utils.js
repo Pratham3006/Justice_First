@@ -86,3 +86,21 @@ export const allCaseTypes = [
   { value: "Maintenance", label: "Maintenance" },
   { value: "Parenting Dispute", label: "Parenting Dispute" },
 ];
+
+export const convertDate = (dateString) => {
+  // Convert to Date object
+  let date = new Date(dateString);
+
+  // Extract day, month, and year
+  let day = date.getUTCDate();
+  let month = date.getUTCMonth() + 1; // Months are zero-based, so we add 1
+  const year = date.getUTCFullYear();
+
+  // Format day, month, and year with leading zeros if necessary
+  day = day < 10 ? "0" + day : day;
+  month = month < 10 ? "0" + month : month;
+
+  // Construct the formatted date string
+  const formattedDate = day + "-" + month + "-" + year;
+  return formattedDate;
+};
