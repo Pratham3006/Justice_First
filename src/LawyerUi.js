@@ -148,7 +148,7 @@ export default function LawyerUi() {
           </button>
         </div>
         <div className="header-lawyer" style={style}>
-          <p>Rules</p>
+          <Link to="/LawyerRules">Rules</Link>
         </div>
         <div className="header-lawyer" style={style}>
           <p>Nomenclature</p>

@@ -1,0 +1,53 @@
+/* LawyerRules.css */
+
+.lawyer-rules {
+    background-color:bisque;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    min-height: 100vh;
+    height: auto;
+  }
+  
+  .lawyer-rules h2 {
+    color: #333;
+    margin-bottom: 15px;
+  }
+  .lawyer-rules li{
+    margin: 30px;
+  }
+  
+  .lawyer-rules p em {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  .lawyer-rules ul {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .lawyer-rules .rule-item {
+    background-color: #f37979;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  @media (max-width: 1000px) {
+    .lawyer-rules {
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .lawyer-rules {
+      width: 95%;
+    }
+  }
+  

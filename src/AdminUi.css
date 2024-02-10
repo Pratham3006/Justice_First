@@ -65,6 +65,30 @@
     min-height: 100vh;
     height: auto;
 }
+.task-3{
+    background-image: url("./components/assets/admin-l-3.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 2px solid black;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 100vh;
+    height: auto;
+}
+.task-4{
+    background-image: url("./components/assets/admin-l-4.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 2px solid black;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 100vh;
+    height: auto;
+}
 .selection-button{
     font-family: "Poppins", sans-serif;
     font-weight: 600;
@@ -95,6 +119,18 @@
         min-height: 70vh;
         height: auto;
     }
+    .task-3{
+        align-items: end;
+        overflow: hidden;
+        min-height: 70vh;
+        height: auto;
+    }
+    .task-4{
+        align-items: end;
+        overflow: hidden;
+        min-height: 70vh;
+        height: auto;
+    }
     
 }
 @media screen and (max-width:800px) {
@@ -109,6 +145,18 @@
         height: auto;
     }
     .task-2{
+        align-items: end;
+        overflow: hidden;
+        min-height: 60vh;
+        height: auto;
+    }
+    .task-3{
+        align-items: end;
+        overflow: hidden;
+        min-height: 60vh;
+        height: auto;
+    }
+    .task-4{
         align-items: end;
         overflow: hidden;
         min-height: 60vh;
@@ -133,7 +181,17 @@
         overflow: hidden;
         align-items: end;
     }
-    
+    .task-3{
+        min-height: 40vh;
+        overflow: hidden;
+        align-items: end;
+    }
+    .task-4{
+        align-items: end;
+        overflow: hidden;
+        min-height: 40vh;
+        height: auto;
+    }
     
 }
 @media screen and (max-width:400px) {
@@ -152,6 +210,17 @@
         min-height: 30vh;
         overflow: hidden;
         align-items: end;
+    }
+    .task-3{
+        min-height: 30vh;
+        overflow: hidden;
+        align-items: end;
+    }
+    .task-4{
+        align-items: end;
+        overflow: hidden;
+        min-height: 30vh;
+        height: auto;
     }
     .selection-button{
         width: 150px;

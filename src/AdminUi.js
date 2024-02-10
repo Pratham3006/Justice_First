@@ -24,6 +24,16 @@ export default function AdminUi() {
             </div>
 
         </div>
+        <div className='task-option'>
+            <div className='task-4'>
+                <Link to="/AdminForm"><button className='selection-button'>Create Public Cases?</button></Link>
+
+            </div>
+            <div className='task-3'>
+                <Link to="/PIL"><button className='selection-button'>Check Grievences?</button></Link>
+            </div>
+
+        </div>
     </div>
   )
 }

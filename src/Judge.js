@@ -63,7 +63,7 @@ export default function Judge() {
                 </a>
               </li>
               <li>
-                <a href="#" className="link">
+                <a href="/contactUs" className="link">
                   Contact us
                 </a>
               </li>

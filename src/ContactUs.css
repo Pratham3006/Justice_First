@@ -1,0 +1,72 @@
+.parent-cu {
+    width: 80%; /* Adjust width for larger screens */
+    max-width: 800px;
+    background-color: #f75050;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+  }
+  
+  @media (max-width: 1000px) {
+    .parent-cu {
+      width: 90%; /* Adjust width for medium-sized screens */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .parent-cu {
+      width: 95%; /* Adjust width for smaller screens */
+      padding: 20px; /* Reduce padding for smaller screens */
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .parent-cu {
+      width: 100%; /* Adjust width for extra-small screens */
+      padding: 10px; /* Reduce padding for extra-small screens */
+    }
+  }
+  
+  .cu-ip {
+    margin: 20px;
+  }
+  
+  .cu-form {
+    text-align: center;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    margin-top: 5px;
+  }
+  
+  .submit-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0056b3;
+  }
+  

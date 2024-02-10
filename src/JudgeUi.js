@@ -5,6 +5,7 @@ import Select from "react-select/async";
 import bulb from "./components/assets/bulb-2.png";
 import setbulb from "./components/assets/bulb1.png";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./JudgeUi.css";
 import Case from "./components/Case";
 import { allCaseTypes } from "./utils";
@@ -160,7 +161,7 @@ export default function JudgeUi() {
           </button>
         </div>
         <div className="header-lawyer" style={style}>
-          <p>Rules</p>
+        <Link to="/JudgeRules">Rules</Link>
         </div>
         <div className="header-lawyer" style={style}>
           <p>Nomenclature</p>

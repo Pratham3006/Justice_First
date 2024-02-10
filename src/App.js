@@ -18,6 +18,11 @@ import History from './History';
 import Pil from './Pil';
 import AdminLogin from './AdminLogin';
 import AdminUi from './AdminUi';
+import AdminForm from './AdminForm';
+import ContactUs from './ContactUs';
+import RulesL from './RulesL';
+import RuleJ from './RuleJ';
+import MyActivity from './MyActivity';
 
 
 
@@ -42,6 +47,11 @@ function App() {
         <Route path="/AdminLogin" element={<AdminLogin/>} />
         <Route path="/AdminDashboard" element={<AdminUi/>} />
         <Route path="/PIL" element={<Pil/>} />
+        <Route path="/AdminForm" element={<AdminForm/>} />
+        <Route path="/ContactUs" element={<ContactUs/>} />
+        <Route path="/LawyerRules" element={<RulesL/>} />
+        <Route path="/JudgeRules" element={<RuleJ/>} />
+        <Route path="/Myactivity" element={<MyActivity/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
