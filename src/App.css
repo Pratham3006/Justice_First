@@ -166,6 +166,14 @@ body, html {
   background-position: sticky;
   min-height: 120vh;
 }
+.wrapper-act{
+  background-image: url("./components/assets/bg_ad.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: sticky;
+  min-height: 120vh;
+}
 .wrapper-cu{
   background-image: url("./components/assets/cu.jpg");
   background-size: contain;
