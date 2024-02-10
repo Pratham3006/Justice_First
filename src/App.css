@@ -143,7 +143,7 @@ body, html {
 }
 
 .wrapper{
-  background-image: url("./components/assets/bg_1.jpg");
+  background-image: url("./components/assets/law-1.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -152,6 +152,14 @@ body, html {
 }
 .wrapper-1{
   background-image: url("./components/assets/bg_2.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: sticky;
+  min-height: 120vh;
+}
+.wrapper-ad{
+  background-image: url("./components/assets/bg_ad.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -219,8 +227,11 @@ body, html {
  justify-content: center;
  align-items: center;
  background-color:#f57b7b;
- position: sticky;
+ position: fixed;
+ overflow: hidden;
+ top:0;
 }
+
 .login-button{
   border: 2px solid black;
   border-radius: 4px;

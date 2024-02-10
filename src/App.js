@@ -16,6 +16,8 @@ import JudgeUi from './JudgeUi';
 import Stats from './Stats';
 import History from './History';
 import Pil from './Pil';
+import AdminLogin from './AdminLogin';
+import AdminUi from './AdminUi';
 
 
 
@@ -37,6 +39,8 @@ function App() {
         <Route path="/Forgot/:id" element={<Fgp/>} />
         <Route path="/Stats" element={<Stats/>} />
         <Route path="/History" element={<History/>} />
+        <Route path="/AdminLogin" element={<AdminLogin/>} />
+        <Route path="/AdminDashboard" element={<AdminUi/>} />
         <Route path="/PIL" element={<Pil/>} />
       </Routes>
     </BrowserRouter>
