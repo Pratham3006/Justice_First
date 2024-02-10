@@ -49,12 +49,11 @@ export default function AdminForm({ onSubmit }) {
   };
 
   return (
-    <div className='container-admin-bg'>
-    <div className="container-admin">
-      <h2 style={{textAlign:"center"}}>Add a New Case</h2>
+    <div className='admin-form-container'>
+      <h2>Add a New Case</h2>
       <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="head" className="form-label">Head</label>
+        <div className="form-group">
+          <label htmlFor="head">Head</label>
           <input
             type="text"
             className="form-control"
@@ -65,8 +64,8 @@ export default function AdminForm({ onSubmit }) {
             required
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="desc" className="form-label">Description</label>
+        <div className="form-group">
+          <label htmlFor="desc">Description</label>
           <input
             type="text"
             className="form-control"
@@ -77,8 +76,8 @@ export default function AdminForm({ onSubmit }) {
             required
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="judge" className="form-label">Judge</label>
+        <div className="form-group">
+          <label htmlFor="judge">Judge</label>
           <input
             type="text"
             className="form-control"
@@ -89,8 +88,8 @@ export default function AdminForm({ onSubmit }) {
             required
           />
         </div>
-        <div className="mb-3">
-          <label htmlFor="filer" className="form-label">Filer</label>
+        <div className="form-group">
+          <label htmlFor="filer">Filer</label>
           <input
             type="text"
             className="form-control"
@@ -104,8 +103,8 @@ export default function AdminForm({ onSubmit }) {
         {/* Render event fields */}
         {formData.events.map((event, index) => (
           <div key={index}>
-            <div className="mb-3">
-              <label htmlFor={`event-date-${index}`} className="form-label">Event Date</label>
+            <div className="form-group">
+              <label htmlFor={`event-date-${index}`}>Event Date</label>
               <input
                 type="date"
                 className="form-control"
@@ -116,8 +115,8 @@ export default function AdminForm({ onSubmit }) {
                 required
               />
             </div>
-            <div className="mb-3">
-              <label htmlFor={`event-description-${index}`} className="form-label">Event Description</label>
+            <div className="form-group">
+              <label htmlFor={`event-description-${index}`}>Event Description</label>
               <input
                 type="text"
                 className="form-control"
@@ -131,10 +130,9 @@ export default function AdminForm({ onSubmit }) {
           </div>
         ))}
         {/* Button to add more events */}
-        <button type="button" className="btn btn-primary" onClick={handleAddEvent} style={{marginRight:"10px" , backgroundColor:"green"}}>Add Event</button>
+        <button type="button" className="btn btn-primary" onClick={handleAddEvent} style={{marginRight:"10px",backgroundColor:"green"}}>Add Event</button>
         <button type="submit" className="btn btn-primary">Submit</button>
       </form>
-    </div>
     </div>
   );
 }

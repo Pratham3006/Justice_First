@@ -39,6 +39,7 @@ export default function ContactUs() {
               name="name"
               value={formData.name}
               onChange={handleChange}
+              className="expansion-box"
               required
             />
           </div>
@@ -50,6 +51,7 @@ export default function ContactUs() {
               name="email"
               value={formData.email}
               onChange={handleChange}
+              className="expansion-box"
               required
             />
           </div>
