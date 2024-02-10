@@ -12,3 +12,24 @@
     border: 2px solid blanchedalmond;
     background-color: beige;
 }
+  
+  @media (max-width: 1000px) {
+    .File-desc {
+      width: 90%;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .File-desc {
+      width: 95%;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .File-desc {
+      width: 100%;
+    }
+  }
+  
+  /* Add more specific styles for responsiveness as needed */
+  

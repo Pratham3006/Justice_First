@@ -1,6 +1,5 @@
 import React from 'react'
 import './AdminUi.css'
-import { Button } from 'bootstrap';
 import { Link } from 'react-router-dom';
 
 export default function AdminUi() {

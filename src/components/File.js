@@ -4,9 +4,29 @@ import './File.css';
 
 export default function File(props) {
   const [isTimelineVisible, setTimelineVisibility] = useState(false);
+  const [newEventDate, setNewEventDate] = useState('');
+  const [newEventDescription, setNewEventDescription] = useState('');
+  const [timeline, setTimeline] = useState(props.timeline);
 
   const toggleTimeline = () => {
     setTimelineVisibility(!isTimelineVisible);
+  };
+
+  const handleNewEventDateChange = (event) => {
+    setNewEventDate(event.target.value);
+  };
+
+  const handleNewEventDescriptionChange = (event) => {
+    setNewEventDescription(event.target.value);
+  };
+
+  const addNewEvent = () => {
+    if (newEventDate.trim() !== '' && newEventDescription.trim() !== '') {
+      const updatedTimeline = [...timeline, { date: newEventDate, description: newEventDescription }];
+      setTimeline(updatedTimeline);
+      setNewEventDate('');
+      setNewEventDescription('');
+    }
   };
 
   return (
@@ -27,15 +47,20 @@ export default function File(props) {
               <h2>Timeline</h2>
               <div className='timeline-line'></div>
               <ul>
-                {props.timeline.map((event, index) => (
+                {timeline.map((event, index) => (
                   <li key={index}>
                     <div className='event-box'>
-                      <span className='event-date'>{event.date}</span>
+                      <span className='event-date'>{event.date} </span>
                       <span className='event-description'>{event.description}</span>
                     </div>
                   </li>
                 ))}
               </ul>
+              <div>
+                <input style={{height:"30px",marginRight:"10px"}} type="date" value={newEventDate} onChange={handleNewEventDateChange} placeholder="YY-MM-DD" />
+                <input style={{height:"30px",marginRight:"10px",width:"400px"}} type="text" value={newEventDescription} onChange={handleNewEventDescriptionChange} placeholder="Description" />
+                <button style={{background:"blue",padding:"6px",color:"white",borderRadius:"6px"}} onClick={addNewEvent}>Add New Event</button>
+              </div>
             </div>
           )}
         </div>
