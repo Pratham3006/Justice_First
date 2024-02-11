@@ -1,29 +1,41 @@
 import React, { useState } from "react";
 import "./ContactUs.css";
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function ContactUs() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const { user_type } = useParams();
+  const navigate = useNavigate();
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  const storedUser = JSON.parse(
+    localStorage.getItem(`${user_type === "judge" ? "judge" : "lawyer"}`)
+  );
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(formData);
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+  const [name, setName] = useState(
+    `${storedUser?.first_name + " " + storedUser?.last_name}`
+  );
+  const [email, setEmail] = useState(`${storedUser?.email}`);
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async () => {
+    const requestObj = {
+      name: name,
+      email: email,
+      message: message,
+    };
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(requestObj),
+    };
+
+    const response = await fetch("http://localhost:5000/complaints/add-complaint", requestOptions);
+    const result = await response.json();
+
+    if(result.status) {
+      navigate(`${user_type === "judge" ? "/judgeLogin" : "/lawyerLogin"}`)
+    }
+    alert(result.message);
   };
 
   return (
@@ -37,8 +49,8 @@ export default function ContactUs() {
               type="text"
               id="name"
               name="name"
-              value={formData.name}
-              onChange={handleChange}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="expansion-box"
               required
             />
@@ -49,8 +61,8 @@ export default function ContactUs() {
               type="email"
               id="email"
               name="email"
-              value={formData.email}
-              onChange={handleChange}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="expansion-box"
               required
             />
@@ -60,12 +72,24 @@ export default function ContactUs() {
             <textarea
               id="message"
               name="message"
-              value={formData.message}
-              onChange={handleChange}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               required
             />
           </div>
-          <button onClick={handleSubmit} style={{backgroundColor:"white", width:"150px",height:"50px",fontWeight:"600",fontSize:"20px", borderRadius:"10px" }}>Submit</button>
+          <button
+            onClick={handleSubmit}
+            style={{
+              backgroundColor: "white",
+              width: "150px",
+              height: "50px",
+              fontWeight: "600",
+              fontSize: "20px",
+              borderRadius: "10px",
+            }}
+          >
+            Submit
+          </button>
         </div>
       </div>
     </div>

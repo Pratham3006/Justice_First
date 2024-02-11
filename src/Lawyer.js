@@ -63,7 +63,7 @@ export default function Lawyer() {
                 </a>
               </li>
               <li>
-                <a href="/contactUs" className="link">
+                <a href="/contactUs/lawyer" className="link">
                   Contact us
                 </a>
               </li>
