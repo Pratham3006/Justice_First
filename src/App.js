@@ -49,11 +49,11 @@ function App() {
         <Route path="/AdminDashboard" element={<AdminUi/>} />
         <Route path="/PIL" element={<Pil/>} />
         <Route path="/AdminForm" element={<AdminForm/>} />
-        <Route path="/ContactUs" element={<ContactUs/>} />
+        <Route path="/ContactUs/:user_type" element={<ContactUs/>} />
         <Route path="/LawyerRules" element={<RulesL/>} />
         <Route path="/JudgeRules" element={<RuleJ/>} />
         <Route path="/Myactivity" element={<MyActivity/>} />
-        <Route path="/Grievances" element={<Complains/>} />
+        <Route path="/Grievances/:status" element={<Complains/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

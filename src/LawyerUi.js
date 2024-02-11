@@ -184,7 +184,7 @@ export default function LawyerUi() {
           Welcome to Justice First
           {storedUser && ", " + storedUser?.first_name}
         </div>
-        {!storedUser?.id ? (
+        {storedUser?.id ? (
           <div className="transmission">
             <p>Enter the case summary for your text</p>
             <div className="Lawyer-input">
