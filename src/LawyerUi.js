@@ -3,6 +3,7 @@ import "./LawyerUi.css";
 import bulb from "./components/assets/bulb-2.png";
 import setbulb from "./components/assets/bulb1.png";
 import clock from './components/assets/clock-1.png';
+import edit from './components/assets/edit.png';
 import { Link, useNavigate } from "react-router-dom";
 
 export default function LawyerUi() {
@@ -143,7 +144,7 @@ export default function LawyerUi() {
     <>
       <nav className="Lawyer-Login" style={style}>
         <div className="header-lawyer">
-          <button className="header-button" onClick={handleDarkmode}>
+          <button className="header-button12" onClick={handleDarkmode}>
             <img src={image} className="bulb-image" alt="" />
           </button>
         </div>
@@ -157,7 +158,9 @@ export default function LawyerUi() {
         <Link to="/Myactivity">My Activity</Link>
         </div>
         <div className="header-lawyer" style={style}>
-          <p>Documentation</p>
+        <button className="header-button12" >
+            <img src={edit} className="bulb-image" alt="" />
+          </button>
         </div>
         <button
           className="header-button12"
