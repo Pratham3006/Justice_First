@@ -7,9 +7,11 @@ import { Link } from "react-router-dom";
 export default function Loginasset() {
   const storedLawyer = JSON.parse(localStorage.getItem("lawyer"));
   const storedJudge = JSON.parse(localStorage.getItem("judge"));
+  const storedAdmin = JSON.parse(localStorage.getItem("admin"));
 
   const isLawyerLoggedIn = !!storedLawyer?.id;
   const isJudgeLoggedIn = !!storedJudge?.id;
+  const isAdminLoggedIn = !!storedAdmin?.id;
 
   return (
     <div>
@@ -51,7 +53,7 @@ export default function Loginasset() {
               <p className="option-text">Login as Admin?</p>
               <img src={admin} alt="Admin" className="option-img" />
             </div>
-            {isJudgeLoggedIn ? (
+            {isAdminLoggedIn ? (
               <Link to="/AdminDashboard">
                 <button className="button">Login</button>
               </Link>

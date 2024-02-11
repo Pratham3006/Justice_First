@@ -10,7 +10,7 @@ export default function AdminLogin() {
   const handleLogin = async () => {
     const requestObj = {};
     requestObj.password = password;
-    requestObj.user_type = "judge";
+    requestObj.user_type = "admin";
 
     isEmail(email) ? (requestObj.email = email) : (requestObj.username = email);
 
@@ -28,9 +28,9 @@ export default function AdminLogin() {
     const result = await response.json();
 
     if (result.status) {
-      localStorage.setItem('judge', JSON.stringify(result.data));
+      localStorage.setItem('admin', JSON.stringify(result.data));
       alert(result.message);
-      navigate("/judgeLogin");
+      navigate("/AdminDashboard");
     } else {
       alert(result.message);
     }
