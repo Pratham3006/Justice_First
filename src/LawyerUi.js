@@ -154,7 +154,7 @@ export default function LawyerUi() {
           <p>Nomenclature</p>
         </div>
         <div className="header-lawyer" style={style}>
-          <p>Guide and manual</p>
+        <Link to="/Myactivity">My Activity</Link>
         </div>
         <div className="header-lawyer" style={style}>
           <p>Documentation</p>

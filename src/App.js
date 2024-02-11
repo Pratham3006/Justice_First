@@ -23,6 +23,7 @@ import ContactUs from './ContactUs';
 import RulesL from './RulesL';
 import RuleJ from './RuleJ';
 import MyActivity from './MyActivity';
+import Complains from './Complains';
 
 
 
@@ -52,6 +53,7 @@ function App() {
         <Route path="/LawyerRules" element={<RulesL/>} />
         <Route path="/JudgeRules" element={<RuleJ/>} />
         <Route path="/Myactivity" element={<MyActivity/>} />
+        <Route path="/Grievances" element={<Complains/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

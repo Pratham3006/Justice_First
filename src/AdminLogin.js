@@ -63,8 +63,9 @@ export default function AdminLogin() {
                 </a>
               </li>
               <li>
-                <a href="#" className="link">
-                  Contact us
+                <a href="/contactUs" className="link">
+                  Contact Us
+        
                 </a>
               </li>
               <li>

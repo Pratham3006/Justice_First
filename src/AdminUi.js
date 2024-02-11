@@ -30,7 +30,7 @@ export default function AdminUi() {
 
             </div>
             <div className='task-3'>
-                <Link to="/PIL"><button className='selection-button'>Check Grievences?</button></Link>
+                <Link to="/Grievances"><button className='selection-button'>Check Grievances?</button></Link>
             </div>
 
         </div>

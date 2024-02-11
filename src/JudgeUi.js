@@ -167,7 +167,7 @@ export default function JudgeUi() {
           <p>Nomenclature</p>
         </div>
         <div className="header-lawyer" style={style}>
-          <p>Guide and manual</p>
+        <Link to="/MyActivity">My Activity</Link>
         </div>
         <div className="header-lawyer" style={style}>
           <p>Documentation</p>
