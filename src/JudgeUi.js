@@ -172,9 +172,7 @@ export default function JudgeUi() {
         </div>
         <div className="header-lawyer" style={style}>
         <Link to="/Validity">
-        <button className="header-button12" >
-            <img src={edit} className="bulb-image" alt="" />
-          </button>
+        <p>Edit your profile</p>
           </Link>
         </div>
         <button className="header-button12" onClick={handleLogout}>
