@@ -150,6 +150,17 @@ body, html {
   background-position: sticky;
   min-height: 120vh;
 }
+.wrapper-vd{
+  background-image: url("./components/assets/valid.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: sticky;
+  min-height: 120vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 .wrapper-1{
   background-image: url("./components/assets/bg_2.jpg");
   background-size: contain;

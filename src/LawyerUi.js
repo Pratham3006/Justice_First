@@ -158,9 +158,11 @@ export default function LawyerUi() {
         <Link to="/Myactivity">My Activity</Link>
         </div>
         <div className="header-lawyer" style={style}>
+        <Link to="/Validity">
         <button className="header-button12" >
             <img src={edit} className="bulb-image" alt="" />
           </button>
+          </Link>
         </div>
         <button
           className="header-button12"

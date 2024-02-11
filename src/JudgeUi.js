@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import "./JudgeUi.css";
 import Case from "./components/Case";
 import { allCaseTypes } from "./utils";
+import edit from './components/assets/edit.png'
 
 export default function JudgeUi() {
   const storedUser = JSON.parse(localStorage.getItem("judge"));
@@ -156,7 +157,7 @@ export default function JudgeUi() {
     <div className="Parent-Ui">
       <nav className="Lawyer-Login" style={style}>
         <div className="header-lawyer">
-          <button className="header-button" onClick={handleDarkmode}>
+          <button className="header-button12" onClick={handleDarkmode}>
             <img src={image} className="bulb-image" alt="" />
           </button>
         </div>
@@ -170,7 +171,11 @@ export default function JudgeUi() {
         <Link to="/MyActivity">My Activity</Link>
         </div>
         <div className="header-lawyer" style={style}>
-          <p>Documentation</p>
+        <Link to="/Validity">
+        <button className="header-button12" >
+            <img src={edit} className="bulb-image" alt="" />
+          </button>
+          </Link>
         </div>
         <button className="header-button12" onClick={handleLogout}>
           Logout
