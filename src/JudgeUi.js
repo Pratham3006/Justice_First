@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import "./JudgeUi.css";
 import Case from "./components/Case";
 import { allCaseTypes } from "./utils";
-import edit from './components/assets/edit.png'
 
 export default function JudgeUi() {
   const storedUser = JSON.parse(localStorage.getItem("judge"));

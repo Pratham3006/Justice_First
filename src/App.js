@@ -25,6 +25,7 @@ import RuleJ from './RuleJ';
 import MyActivity from './MyActivity';
 import Complains from './Complains';
 import Validity from './Validity';
+import Edit from './Edit';
 
 
 
@@ -56,6 +57,7 @@ function App() {
         <Route path="/Myactivity" element={<MyActivity/>} />
         <Route path="/Validity" element={<Validity/>} />
         <Route path="/Grievances/:status" element={<Complains/>} />
+        <Route path="/Edit" element={<Edit/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
