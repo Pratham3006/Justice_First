@@ -3,7 +3,6 @@ import "./LawyerUi.css";
 import bulb from "./components/assets/bulb-2.png";
 import setbulb from "./components/assets/bulb1.png";
 import clock from './components/assets/clock-1.png';
-import edit from './components/assets/edit.png';
 import { Link, useNavigate } from "react-router-dom";
 
 export default function LawyerUi() {
