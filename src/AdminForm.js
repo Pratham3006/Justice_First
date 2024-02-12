@@ -1,24 +1,28 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import './AdminForm.css';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import "./AdminForm.css";
 
-export default function AdminForm({ onSubmit }) {
+export default function AdminForm() {
   const [formData, setFormData] = useState({
-    head: '',
-    desc: '',
-    judge: '',
-    filer: '',
-    events: [{ date: '', description: '' }], // Initial array with one event
+    head: "",
+    desc: "",
+    judge: "",
+    filer: "",
+    timelines: [{ date: "", description: "" }], // Initial array with one event
   });
+
+  const isButtonDisabled =
+    formData.timelines[formData.timelines.length - 1]["date"] === "" ||
+    formData.timelines[formData.timelines.length - 1]["description"] === "";
 
   const handleChange = (event, index) => {
     const { name, value } = event.target;
-    if (name === 'date' || name === 'description') {
-      const updatedEvents = [...formData.events];
+    if (name === "date" || name === "description") {
+      const updatedEvents = [...formData.timelines];
       updatedEvents[index][name] = value;
       setFormData((prevData) => ({
         ...prevData,
-        events: updatedEvents,
+        timelines: updatedEvents,
       }));
     } else {
       setFormData((prevData) => ({
@@ -31,25 +35,42 @@ export default function AdminForm({ onSubmit }) {
   const handleAddEvent = () => {
     setFormData((prevData) => ({
       ...prevData,
-      events: [...prevData.events, { date: '', description: '' }],
+      timelines: [...prevData.timelines, { date: "", description: "" }],
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    onSubmit(formData);
-    // Reset form fields after submission
-    setFormData({
-      head: '',
-      desc: '',
-      judge: '',
-      filer: '',
-      events: [{ date: '', description: '' }], // Reset events to initial state
-    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    };
+    
+    const response = await fetch(
+      `http://localhost:5000/pils/add-pil`,
+      requestOptions
+    );
+
+    const result = await response.json();
+
+    if (result.status) {
+      // Reset form fields after submission
+      setFormData({
+        head: "",
+        desc: "",
+        judge: "",
+        filer: "",
+        timelines: [{ date: "", description: "" }], // Reset timelines to initial state
+      });
+    }
+
+    alert(result.message);
   };
 
   return (
-    <div className='admin-form-container'>
+    <div className="admin-form-container">
       <h2>Add a New Case</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -101,7 +122,7 @@ export default function AdminForm({ onSubmit }) {
           />
         </div>
         {/* Render event fields */}
-        {formData.events.map((event, index) => (
+        {formData.timelines.map((event, index) => (
           <div key={index}>
             <div className="form-group">
               <label htmlFor={`event-date-${index}`}>Event Date</label>
@@ -116,7 +137,9 @@ export default function AdminForm({ onSubmit }) {
               />
             </div>
             <div className="form-group">
-              <label htmlFor={`event-description-${index}`}>Event Description</label>
+              <label htmlFor={`event-description-${index}`}>
+                Event Description
+              </label>
               <input
                 type="text"
                 className="form-control"
@@ -129,14 +152,28 @@ export default function AdminForm({ onSubmit }) {
             </div>
           </div>
         ))}
-        {/* Button to add more events */}
-        <button type="button" className="btn btn-primary" onClick={handleAddEvent} style={{marginRight:"10px",backgroundColor:"green"}}>Add Event</button>
-        <button type="submit" className="btn btn-primary">Submit</button>
+        {/* Button to add more timelines */}
+        <button
+          type="button"
+          className={`btn btn-primary ${
+            isButtonDisabled ? "disabledButton" : "enabledButton"
+          }`}
+          onClick={handleAddEvent}
+          style={{ marginRight: "10px", backgroundColor: "green" }}
+          disabled={isButtonDisabled}
+        >
+          Add Event
+        </button>
+        <button
+          type="submit"
+          className={`btn btn-primary ${
+            isButtonDisabled ? "disabledButton" : "enabledButton"
+          }`}
+          disabled={isButtonDisabled}
+        >
+          Submit
+        </button>
       </form>
     </div>
   );
 }
-
-AdminForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};

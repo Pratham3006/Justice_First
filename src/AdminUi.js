@@ -3,8 +3,10 @@ import './AdminUi.css'
 import { Link } from 'react-router-dom';
 
 export default function AdminUi() {
-    const name="Pratham";
-    const secondname="Shetty"
+    const storedUser = JSON.parse(localStorage.getItem('admin'));
+    const name= storedUser.first_name;
+    const secondname= storedUser.last_name;
+    
   return (
     <div className='AdminUi-parent'>
         <div className='AdminUi-welcome'>
