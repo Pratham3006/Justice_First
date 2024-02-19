@@ -1,65 +1,51 @@
 import React, { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import pencil from "./components/assets/pencil.png";
-import eye from "./components/assets/eye.png";
-import eyeSlash from "./components/assets/eyeslash.png";
 import "./Edit.css";
 
 export default function Edit() {
-  const [name, setName] = useState("Pratham");
-  const [secondname, setSecondName] = useState("Shetty");
-  const [email, setEmail] = useState("prathamshetty71@gmail.com");
-  const [password, setPassword] = useState("Pratham45");
-  const [showPassword, setShowPassword] = useState(false);
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const storedUser = JSON.parse(
+    localStorage.getItem(`${Number(id) === 1 ? "lawyer" : "judge"}`)
+  );
+
+  const [name, setName] = useState(storedUser.first_name);
+  const [secondName, setSecondName] = useState(storedUser.last_name);
+  const [email, setEmail] = useState(storedUser.email);
   const [editableField, setEditableField] = useState(null);
-  const [editedName, setEditedName] = useState("");
-  const [editedSecondName, setEditedSecondName] = useState("");
-  const [editedEmail, setEditedEmail] = useState("");
-  const [editedPassword, setEditedPassword] = useState("");
 
   const handleEdit = (field, value) => {
     setEditableField(field);
-    switch (field) {
-      case "name":
-        setEditedName(value);
-        break;
-      case "secondname":
-        setEditedSecondName(value);
-        break;
-      case "email":
-        setEditedEmail(value);
-        break;
-      case "password":
-        setEditedPassword(value);
-        break;
-      default:
-        break;
-    }
   };
 
   const handleSubmit = () => {
-    if (editedName !== "") {
-      setName(editedName);
-    }
-    if (editedSecondName !== "") {
-      setSecondName(editedSecondName);
-    }
-    if (editedEmail !== "") {
+    const updatedUser = {
+      ...storedUser,
+      first_name: name,
+      last_name: secondName,
+      email: email,
+    };
 
-      setEmail(editedEmail);
-    }
-    if (editedPassword !== "") {
-      console.log(`Password changed from "${password}" to "${editedPassword}"`);
-      setPassword(editedPassword);
-    }
-    setEditableField(null); // Reset editableField after submission
-    setEditedName("");
-    setEditedSecondName("");
-    setEditedEmail("");
-    setEditedPassword("");
-  };
+    localStorage.setItem(
+      `${Number(id) === 1 ? "lawyer" : "judge"}`,
+      JSON.stringify(updatedUser)
+    );
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+    setEditableField(null);
+
+    // Make an API call to update the user
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedUser),
+    };
+
+    fetch(`http://localhost:5000/users/update-profile`, requestOptions);
+    navigate(`${Number(id) === 1 ? "/lawyerLogin" : "/judgeLogin"}`);
   };
 
   return (
@@ -74,11 +60,14 @@ export default function Edit() {
             placeholder="name"
             type="text"
             className="child-input"
-            value={editableField === "name" ? editedName : name}
-            onChange={(e) => handleEdit("name", e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             disabled={editableField !== "name"}
           />
-          <button className="edit-pencil" onClick={() => handleEdit("name", name)}>
+          <button
+            className="edit-pencil"
+            onClick={() => handleEdit("name", name)}
+          >
             <img src={pencil} alt="Edit" />
           </button>
         </div>
@@ -88,11 +77,14 @@ export default function Edit() {
             placeholder="second name"
             type="text"
             className="child-input"
-            value={editableField === "secondname" ? editedSecondName : secondname}
-            onChange={(e) => handleEdit("secondname", e.target.value)}
-            disabled={editableField !== "secondname"}
+            value={secondName}
+            onChange={(e) => setSecondName(e.target.value)}
+            disabled={editableField !== "secondName"}
           />
-          <button className="edit-pencil" onClick={() => handleEdit("secondname", secondname)}>
+          <button
+            className="edit-pencil"
+            onClick={() => handleEdit("secondName", secondName)}
+          >
             <img src={pencil} alt="Edit" />
           </button>
         </div>
@@ -102,34 +94,14 @@ export default function Edit() {
             placeholder="email"
             type="email"
             className="child-input"
-            value={editableField === "email" ? editedEmail : email}
-            onChange={(e) => handleEdit("email", e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             disabled={editableField !== "email"}
           />
-          <button className="edit-pencil" onClick={() => handleEdit("email", email)}>
-            <img src={pencil} alt="Edit" />
-          </button>
-        </div>
-        <label>Password:- </label>
-        <div className="child-edit">
-          <div style={{ position: "relative" }}>
-            <input
-              placeholder="password"
-              type={showPassword ? "text" : "password"}
-              className="child-input"
-              value={editableField === "password" ? editedPassword : password}
-              onChange={(e) => handleEdit("password", e.target.value)}
-              disabled={editableField !== "password"}
-            />
-            <button
-              className="toggle-password"
-              onClick={togglePasswordVisibility}
-              style={{ position: "absolute", right: "5px", top: "50%", transform: "translateY(-50%)", borderRadius:"50px"}}
-            >
-              <img src={showPassword ? eyeSlash : eye} alt="Toggle password visibility" />
-            </button>
-          </div>
-          <button className="edit-pencil" onClick={() => handleEdit("password", password)}>
+          <button
+            className="edit-pencil"
+            onClick={() => handleEdit("email", email)}
+          >
             <img src={pencil} alt="Edit" />
           </button>
         </div>
