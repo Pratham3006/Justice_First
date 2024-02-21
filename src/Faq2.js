@@ -6,16 +6,36 @@ const Faq2 = () => {
 
   const faqData = [
     {
-      question: 'What is an FAQ Page?',
-      answer: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi...',
+      "question": "How do I submit a new case?",
+      "answer": "To submit a new case, navigate to the 'Submit Case' section and follow the prompts to provide relevant details and documents."
     },
     {
-      question: 'Why do you need an FAQ page?',
-      answer: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi. skjhcsahjhchsakhckjshcjsahckjhscjs lkcjsa lks nsd c lksc  scnlk c,scm  l;sdc sd lkx ,sdvlk  nlk ,md d ld',
+      "question": "Where can I find my case history?",
+      "answer": "Your case history can be found in the 'My Cases' section, where you can view details of all the cases you've submitted."
     },
     {
-      question: 'Does it improve the user experience of a website?',
-      answer: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi...',
+      "question": "How do I update my profile information?",
+      "answer": "You can update your profile information by accessing the 'Edit Profile' page and making changes to your personal details."
+    },
+    {
+      "question": "What should I do if I forget my password?",
+      "answer": "If you forget your password, you can reset it by clicking on the 'Forgot Password' link on the login page and following the instructions provided."
+    },
+    {
+      "question": "How can I track the cases i have submitted till now?",
+      "answer": "You can track the  cases by navigating to the 'History' section, where you'll find real-time updates"
+    },
+    {
+      "question": "Is my personal information shared with anyone?",
+      "answer": "No, your personal information is kept confidential and is not shared with anyone outside the platform. We prioritize the privacy and security of our users."
+    },
+    {
+      "question": "What should I do if I encounter technical issues?",
+      "answer": "If you encounter technical issues while using the platform, please contact our support team for assistance. You can find the contact information in the 'Support' section."
+    },
+    {
+      "question": "How do I submit feedback or suggestions?",
+      "answer": "We welcome your feedback and suggestions for improving our platform. You can submit your feedback through the 'Feedback' form located in the 'Settings' menu."
     },
   ];
 

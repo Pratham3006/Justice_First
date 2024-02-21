@@ -1,14 +1,47 @@
 // src/components/AboutUs.js
 import React from 'react';
 import './AboutUs.css';
+import pratham from './components/assets/pratham.jpeg'
+import dhruv from './components/assets/dhruv.jpeg'
+import atharva from './components/assets/atharv.jpeg'
+import ved from './components/assets/ved.jpeg'
+import sahil from './components/assets/sahil.jpeg'
 
 const teamMembers = [
   {
     id: 1,
-    name: 'John Doe',
-    role: 'CEO and Founder',
-    image: '/images/test.jpg',
-    bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus nulla ac sem dictum tristique. Proin id scelerisque lacus. Integer id justo et lacus posuere bibendum. Nunc euismod nisl vel velit cursus, vitae condimentum quam tempor.',
+    name: 'Pratham Shetty',
+    role: 'Front-end devloper',
+    image: pratham,
+    bio: 'Pratham is a skilled front-end developer with a passion for creating engaging and user-friendly interfaces. With expertise in HTML, CSS, and JavaScript, Pratham excels at turning design concepts into functional websites and web applications. Dedicated to staying updated with the latest trends and technologies in front-end development, Pratham is committed to delivering high-quality and responsive user experiences.',
+  },
+  {
+    id: 2,
+    name: 'Dhruv Gohel',
+    role: 'AI enthusiast',
+    image: dhruv,
+    bio: 'Bio: Dhruv is an enthusiastic advocate for artificial intelligence and its transformative potential. With a strong background in machine learning and data analysis, Dhruv is fascinated by the ways AI can be applied to solve complex problems and improve efficiency across various industries. Eager to explore new algorithms and techniques, Dhruv is driven by a curiosity to push the boundaries of what AI can achieve.',
+  },
+  {
+    id: 1,
+    name: 'Atharva Headao',
+    role: 'AI enthusiast',
+    image: atharva,
+    bio: ' Atharva is deeply passionate about artificial intelligence and its implications for the future. With a focus on deep learning and neural networks, Atharva is dedicated to understanding and developing AI solutions that address real-world challenges. Inspired by the potential of AI to revolutionize industries and improve lives, Atharva is constantly exploring new methodologies and applications in the field.',
+  },
+  {
+    id: 2,
+    name: 'Ved Bhalerao',
+    role: 'Database Administrator',
+    image: ved,
+    bio: 'Ved is a skilled database administrator proficient in managing and optimizing database systems for efficient data storage and retrieval. With expertise in SQL and database management tools, Ved ensures the integrity, security, and performance of critical data infrastructure. Diligent and detail-oriented, Ved is committed to implementing best practices to maintain data consistency and availability.',
+  },
+  {
+    id: 1,
+    name: 'Sahil Gala',
+    role: 'Law and Judicial mentor',
+    image: sahil,
+    bio: 'Sahil brings a wealth of experience and knowledge to his role as a law and judicial mentor. With a background in legal studies and a deep understanding of the legal system, Sahil provides guidance and support to aspiring lawyers and legal professionals. Committed to upholding justice and promoting ethical practices, Sahil is dedicated to nurturing the next generation of legal minds and fostering a culture of integrity and fairness in the legal profession.',
   },
   {
     id: 2,
@@ -17,7 +50,7 @@ const teamMembers = [
     image: '/images/test1.jpeg',
     bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus nulla ac sem dictum tristique. Proin id justo et lacus posuere bibendum. Nunc euismod nisl vel velit cursus, vitae condimentum quam tempor.',
   },
-  // Add more team members as needed
+  
 ];
 
 const AboutUs = () => {

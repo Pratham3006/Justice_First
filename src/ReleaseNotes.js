@@ -8,42 +8,88 @@ import { faCalendar, faCog, faStar } from '@fortawesome/free-solid-svg-icons';
 
 const releaseNotesData = [
   {
-    month: 'January 2023',
-    notes: [
-      { id: 1, description: 'Feature A added.' },
-      { id: 2, description: 'Bug fix in Component B.' },
-      { id: 3, description: 'Performance optimization in Module C.' },
-      { id: 4, description: 'Security update for Feature D.' },
-    ],
+    "month": "June 2023",
+    "notes": [
+      { "id": 1, "description": "Started building the basic website using HTML and CSS." },
+      { "id": 2, "description": "Experimented with initial design concepts." },
+      { "id": 3, "description": "Researched potential technologies for future development phases." },
+      { "id": 4, "description": "Outlined project roadmap and milestones." }
+    ]
   },
   {
-    month: 'February 2023',
-    notes: [
-      { id: 5, description: 'New UI design implemented.' },
-      { id: 6, description: 'Enhancements to Component E.' },
-      { id: 7, description: 'API integration for Feature F.' },
-      { id: 8, description: 'Bug fixes and stability improvements.' },
-    ],
+    "month": "July 2023",
+    "notes": [
+      { "id": 5, "description": "Integrated React.js into the project." },
+      { "id": 6, "description": "Developed interactive user interfaces for improved user experience." },
+      { "id": 7, "description": "Explored various frontend libraries for additional functionality." },
+      { "id": 8, "description": "Refined project scope based on initial prototype feedback." }
+    ]
   },
   {
-    month: 'March 2023',
-    notes: [
-      { id: 9, description: 'Introduction of Feature G.' },
-      { id: 10, description: 'Compatibility fixes for Browser H.' },
-      { id: 11, description: 'User authentication updates.' },
-      { id: 12, description: 'Localization support for Module I.' },
-    ],
-  },{
-    month: 'April 2023',
-    notes: [
-      { id: 9, description: 'Introduction of Feature G.' },
-      { id: 10, description: 'Compatibility fixes for Browser H.' },
-      { id: 11, description: 'User authentication updates.' },
-      { id: 12, description: 'Localization support for Module I.' },
-    ],
+    "month": "August 2023",
+    "notes": [
+      { "id": 9, "description": "Implemented classifier algorithms for enhanced functionality." },
+      { "id": 10, "description": "Optimized website performance for faster loading times." },
+      { "id": 11, "description": "Researched and tested different machine learning models for future enhancements." },
+      { "id": 12, "description": "Explored options for integrating AI components into the project." }
+    ]
+  },
+  {
+    "month": "September 2023",
+    "notes": [
+      { "id": 13, "description": "Implemented security measures and protocols." },
+      { "id": 14, "description": "Conducted security audits to identify potential vulnerabilities." },
+      { "id": 15, "description": "Reviewed and updated data encryption practices." },
+      { "id": 16, "description": "Integrated authentication mechanisms for user access control." }
+    ]
+  },
+  {
+    "month": "October 2023",
+    "notes": [
+      { "id": 17, "description": "Collaborated with UI/UX designers to implement new UI design." },
+      { "id": 18, "description": "Iterated on design iterations based on user feedback." },
+      { "id": 19, "description": "Explored accessibility features for inclusivity." },
+      { "id": 20, "description": "Reviewed and optimized UI/UX for mobile responsiveness." }
+    ]
+  },
+  {
+    "month": "November 2023",
+    "notes": [
+      { "id": 21, "description": "Enhanced specific components of the website based on feedback." },
+      { "id": 22, "description": "Conducted user testing sessions to gather feedback." },
+      { "id": 23, "description": "Refactored codebase for improved maintainability." },
+      { "id": 24, "description": "Explored gamification elements for user engagement." }
+    ]
+  },
+  {
+    "month": "December 2023",
+    "notes": [
+      { "id": 25, "description": "Integrated external APIs to add new features." },
+      { "id": 26, "description": "Explored partnerships for data integration." },
+      { "id": 27, "description": "Conducted stress testing for API scalability." },
+      { "id": 28, "description": "Optimized API calls for improved performance." }
+    ]
+  },
+  {
+    "month": "January 2024",
+    "notes": [
+      { "id": 29, "description": "Conducted testing and implemented bug fixes." },
+      { "id": 30, "description": "Performed cross-browser compatibility testing." },
+      { "id": 31, "description": "Optimized codebase for better SEO performance." },
+      { "id": 32, "description": "Reviewed and updated documentation for future reference." }
+    ]
+  },
+  {
+    "month": "February 2024",
+    "notes": [
+      { "id": 33, "description": "Completed development of NLP model and backend using SQL." },
+      { "id": 34, "description": "Conducted final user acceptance testing." },
+      { "id": 35, "description": "Prepared project for deployment to production environment." },
+      { "id": 36, "description": "Celebrated successful project completion with team members." }
+    ]
   }
-  // Add more months and notes as needed.
 ];
+
 
 const ReleaseNotes = () => {
   return (

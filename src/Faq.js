@@ -6,16 +6,28 @@ const Faq = () => {
 
   const faqData = [
     {
-      question: 'What is an FAQ Page?',
-      answer: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi...',
+      question: 'What do i do with PIL cases?',
+      answer: 'PIL case feature helps you easily understand and create transpirancy about a case which is being a national issue',
     },
     {
-      question: 'Why do you need an FAQ page?',
-      answer: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi. skjhcsahjhchsakhckjshcjsahckjhscjs lkcjsa lks nsd c lksc  scnlk c,scm  l;sdc sd lkx ,sdvlk  nlk ,md d ld',
+      question: "Why isn't there a sign up page for me?",
+      answer: 'There is no general sign up page as the sign up is done by the Government officials and can be done only if you are a lawyer or a judge',
     },
     {
-      question: 'Does it improve the user experience of a website?',
-      answer: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe sequi...',
+      "question": "What services does this platform offer?",
+      "answer": "Our platform offers a range of services including case management, and access to legal resources."
+    },
+    {
+      "question": "How can I get started with using this platform?",
+      "answer": "Getting started is easy! Simply sign up for an account and follow the on-screen instructions to begin accessing our services but is only possible if you are a lawyer or a judge or team will catch up with the courts whenever there are lawyers and judges who want to join us"
+    },
+    {
+      "question": "Is this platform accessible on mobile devices?",
+      "answer": "Yes, our platform is fully responsive and can be accessed on any device, including smartphones and tablets."
+    },
+    {
+      "question": "Can I access legal assistance through this platform?",
+      "answer": "It can only be accessed by  the people of the courts."
     },
   ];
 

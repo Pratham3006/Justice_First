@@ -1,7 +1,7 @@
 import React from 'react';
 import Lottie from 'react-lottie';
 import animationData from './components/assets/Animation - 1705738607896.json'; 
-import LocalSvg from './components/assets/fcb.svg'; 
+import LocalSvg from './components/assets/fcb-61.svg'; 
 import './Loader.css'
 
 const Loader = () => {
