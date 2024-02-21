@@ -157,7 +157,7 @@ export default function LawyerUi() {
         <Link to="/Myactivity">My Activity</Link>
         </div>
         <div className="header-lawyer" style={style}>
-        <Link to="/Validity">
+        <Link to="/Validity/1">
         <p>Edit your profile</p>
           </Link>
         </div>
@@ -180,7 +180,7 @@ export default function LawyerUi() {
           </div>
         </div>
         <div className="content-para-1">
-          <div className="content-para-click"><Link to="/History"><img src={clock}></img></Link></div>
+          <div className="content-para-click"><Link to="/History"><img src={clock} alt="clock"></img></Link></div>
         </div>
         <div className="content-para">
           Welcome to Justice First
@@ -226,7 +226,7 @@ export default function LawyerUi() {
                 style={{
                   ...submit,
                   color: style.color,
-                  fontSize: style.color === "antiquewhite" ? "20px" : "20px",
+                  fontSize: "20px",
                   fontWeight: "800",
                 }}
               >

@@ -55,9 +55,9 @@ function App() {
         <Route path="/LawyerRules" element={<RulesL/>} />
         <Route path="/JudgeRules" element={<RuleJ/>} />
         <Route path="/Myactivity" element={<MyActivity/>} />
-        <Route path="/Validity" element={<Validity/>} />
+        <Route path="/Validity/:id" element={<Validity/>} />
         <Route path="/Grievances/:status" element={<Complains/>} />
-        <Route path="/Edit" element={<Edit/>} />
+        <Route path="/Edit/:id" element={<Edit/>} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
