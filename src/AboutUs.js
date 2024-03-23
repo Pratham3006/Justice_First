@@ -6,6 +6,7 @@ import dhruv from './components/assets/dhruv.jpeg'
 import atharva from './components/assets/atharv.jpeg'
 import ved from './components/assets/ved.jpeg'
 import sahil from './components/assets/sahil.jpeg'
+import monali from './components/assets/fml.png'
 
 const teamMembers = [
   {
@@ -45,10 +46,10 @@ const teamMembers = [
   },
   {
     id: 2,
-    name: 'Jane Doe',
-    role: 'CTO',
-    image: '/images/test1.jpeg',
-    bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus nulla ac sem dictum tristique. Proin id justo et lacus posuere bibendum. Nunc euismod nisl vel velit cursus, vitae condimentum quam tempor.',
+    name: 'Monali Chaudhari',
+    role: 'Mentor',
+    image: monali,
+    bio: 'A mentor is a guiding light, offering wisdom and support to those navigating unfamiliar paths. They inspire growth, providing invaluable advice and encouragement along the journey of personal and professional development. With experience as their compass, mentors empower mentees to reach their full potential.',
   },
   
 ];
